@@ -239,3 +239,22 @@ tab-item.active .highlighter::before {
 
 
 
+
+
+
+
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] {
+overflow: hidden !important;
+position: relative !important;
+transition: all 300ms !important;
+min-width: var(--thin-tab-width) !important;
+max-width: var(--thin-tab-width) !important;
+z-index: 2;
+}
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"]:hover,
+#sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar {
+transition: all 300ms !important;
+min-width: var(--wide-tab-width) !important;
+max-width: var(--wide-tab-width) !important;
+z-index: 1;
+}
