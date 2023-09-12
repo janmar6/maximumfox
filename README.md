@@ -17,7 +17,7 @@
 1. Go to `about:addons`.
 2. Click on `Tree Style Tab` -> `Preferences` -> `Open this options page in more wide space`(blue link at top right) -> `Advanced`.
 3. Inside of the text box delete everything and copy-paste the contents of the `TreeStyleTabs.css`(Saved automatically).
-
+4. Under `Appearance` there is `Indent tabs until`... , set this to 0.
 
 ### Adaptive Tab Bar Color
 1. Go to `about:addons`.
