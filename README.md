@@ -27,3 +27,7 @@
 
 ### Restart FireFox
 once you restart firefox everything should look good.
+
+### Useful shortcuts
+- To toggle Tree Style Tab, you can press `F1`.
+- To focus on the nav bar, you can press `F6`.
