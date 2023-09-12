@@ -1,4 +1,4 @@
-# maximumfox
+# MaximumFox
 
 
 ### UserChrome.css
