@@ -1,0 +1,301 @@
+
+/*
+ *
+ *
+ * nobar
+ *
+ *
+ * */
+
+:root {
+
+    /* Theme Colors */
+    --window-colour:               var(--lwt-accent-color);
+    --secondary-colour:            var(--toolbar-field-background-color);
+    --inverted-colour:             var(--lwt-text-color);
+     
+
+    /* Container Tab Colours */
+    --uc-identity-color-blue:      #6694df;
+    --uc-identity-color-turquoise: #55E6C1;
+    --uc-identity-color-green:     #B8E994;
+    --uc-identity-color-yellow:    #F7D794;
+    --uc-identity-color-orange:    #F19066;
+    --uc-identity-color-red:       #FC5C65;
+    --uc-identity-color-pink:      #F78FB3;
+    --uc-identity-color-purple:    #786FA6;
+     
+    
+    /* URL colour in URL bar suggestions */
+    --urlbar-popup-url-color: var(--uc-identity-color-purple) !important;
+    /* global border radius */
+    --uc-border-radius: 0;
+}
+
+:root {
+    
+    --uc-theme-colour:                          var(--window-colour);
+    --uc-hover-colour:                          var(--secondary-colour);
+    --uc-inverted-colour:                       var(--inverted-colour);
+    
+    --button-bgcolor:                           var(--uc-theme-colour)    !important;
+    --button-hover-bgcolor:                     var(--uc-hover-colour)    !important;
+    --button-active-bgcolor:                    var(--uc-hover-colour)    !important;
+    
+    --toolbar-bgcolor:                          var(--uc-theme-colour)    !important;
+    --toolbarbutton-hover-background:           var(--uc-hover-colour)    !important;
+    --toolbarbutton-active-background:          var(--uc-hover-colour)    !important;
+    --toolbarbutton-border-radius:              var(--uc-border-radius)   !important;
+    --lwt-toolbar-field-focus:                  var(--uc-theme-colour)    !important;
+    --toolbarbutton-icon-fill:                  var(--uc-inverted-colour) !important;
+    --toolbar-field-focus-background-color:     var(--secondary-colour)   !important;
+    --toolbar-field-color:                      var(--uc-inverted-colour) !important;
+    --toolbar-field-focus-color:                var(--uc-inverted-colour) !important;
+    
+    --tabs-border-color:                        var(--uc-theme-colour)    !important;
+    --tab-border-radius:                        var(--uc-border-radius)   !important;
+
+    --lwt-sidebar-background-color:             var(--uc-hover-colour)    !important;
+    --lwt-sidebar-text-color:                   var(--uc-inverted-colour) !important;
+  
+    --arrowpanel-border-color:                  var(--uc-theme-colour)    !important;
+    --arrowpanel-border-radius:                 var(--uc-border-radius)   !important;
+    --arrowpanel-background:                    var(--uc-theme-colour)    !important;
+    --arrowpanel-color:                         var(--inverted-colour)    !important;
+
+    --autocomplete-popup-highlight-background:  var(--uc-inverted-colour) !important;
+    --autocomplete-popup-highlight-color:       var(--uc-inverted-colour) !important;
+    --autocomplete-popup-hover-background:      var(--uc-inverted-colour) !important;
+    
+
+    --tab-block-margin: 2px !important;
+    
+}
+
+window,
+#main-window,
+#toolbar-menubar,
+#TabsToolbar,
+#PersonalToolbar,
+#navigator-toolbox,
+#sidebar-box,
+#nav-bar {
+
+    -moz-appearance: none !important;
+    
+    border: none !important;
+    box-shadow: none !important;
+    background: var(--uc-theme-colour) !important;
+
+}
+
+
+/* Show Window Control Button */
+.titlebar-buttonbox-container { display: none !important; }
+
+
+#urlbar-background { border: var(--uc-hover-colour) !important; }
+
+#urlbar[focused="true"]
+    > #urlbar-background,
+#urlbar:not([open])
+    > #urlbar-background { background: transparent !important; }
+
+#urlbar[open]
+    > #urlbar-background { background: var(--uc-hover-colour) !important; }
+
+.urlbarView-row:hover
+    > .urlbarView-row-inner,
+.urlbarView-row[selected]
+    > .urlbarView-row-inner { background: var(--uc-theme-colour) !important; }
+
+
+
+
+
+
+
+
+#nav-bar {
+	--navbar-margin: -40px;
+
+
+	margin-left: calc(var(--sidebar-width) + 10px) !important;
+	margin-top: var(--navbar-margin);
+	margin-bottom: 0;
+
+	/* Remove border around urlbar when focused */
+	--toolbar-field-focus-border-color: transparent;
+	opacity: 0;
+
+	transition-property: unset !important;
+	transition-duration: unset !important;
+	transition-timing-function: unset !important;
+
+	z-index: -100;
+}
+
+#navigator-toolbox:focus-within > #nav-bar,
+#navigator-toolbox:hover > #nav-bar
+{
+	margin-top: 0;
+	margin-bottom: var(--navbar-margin);
+	z-index: 100;
+	opacity: 1;
+}
+
+#urlbar-container {
+	/* change this value to make entire bar shorter in height */
+	--urlbar-container-height: 28px !important;
+
+	margin-top: 0 !important;
+	margin-bottom: 0 !important;
+}
+
+#urlbar {
+	background-color: var(--custom-bg-color) !important;
+	border: none !important;
+	box-shadow: none !important;
+
+	/* give area where cursor enters text an indent */
+	padding-inline-start: 2px !important;
+}
+
+/* makes URL placeholder text transparent
+ * source: https://support.mozilla.org/en-US/questions/1293159
+ * */
+#urlbar *|input::placeholder,
+*|input:focus::placeholder {
+	opacity:0 !important;
+}
+
+/* Fix URL address vertical aligment when megabar is open */
+#urlbar[breakout="true"][open="true"] {
+	--urlbar-toolbar-height: 24px !important;
+}
+
+/* Fix vertical alignment */
+#urlbar[breakout="true"]:not([open="true"]) {
+	--urlbar-height: 24px !important;
+	--urlbar-toolbar-height: 26px !important;
+}
+
+/* Remove breakout/popup/shadow when URL is focused */
+#urlbar[focused="true"] > #urlbar-background,
+#searchbar:focus-within {
+	--toolbar-field-focus-border-color: transparent;
+	border: none !important;
+	box-shadow: none !important;
+}
+
+#urlbar-background { background-color: var(--custom-bg-color) !important;}
+
+/* remove border under nav-bar */
+/* src: https://www.reddit.com/r/FirefoxCSS/comments/wt74gm/how_to_get_rid_of_black_line_under_search_bar/ */
+#navigator-toolbox {
+	border-bottom: none !important;
+}
+
+/* Remove buttons and icons */
+#identity-box,
+#identity-icon,
+#page-action-buttons,
+#reload-button,
+#star-button-box,
+#stop-reload-button,
+#tracking-protection-icon-container,
+#urlbar-go-button {
+	display: none !important;
+}
+
+#nav-bar-overflow-button,
+#PanelUI-button {
+	filter: grayscale(100%) opacity(40%);
+	text-align: center;
+
+	/* make buttons smaller */
+	transform: scale(.7,.7);
+}
+
+
+
+
+
+
+
+
+@-moz-document url("chrome://browser/content/browser.xhtml") {
+
+  /* To bring back OS title bar with min/max/close buttons, some users might
+   * consider setting browser.tabs.drawInTitlebar to false in about:config
+   */
+  :root {
+    --custom-sidebar-collapsed-width: 30px;
+    --custom-sidebar-full-width: 20vw;
+    --custom-sidebar-border: 0px solid #404040;
+  }
+
+  #TabsToolbar {
+    visibility: collapse !important;
+  }
+
+  #sidebar-box[sidebarcommand="treestyletab_piro_sakura_ne_jp-sidebar-action"] #sidebar-header {
+      visibility: collapse;
+  }
+  #navigator-toolbox {
+    border-bottom: 0 !important;
+  }
+
+  #browser {
+    position: relative;
+  }
+
+  #sidebar-box:not([hidden]) {
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    border-right: var(--custom-sidebar-border);
+    min-width: var(--custom-sidebar-collapsed-width) !important;
+    width: var(--custom-sidebar-collapsed-width) !important;
+    height: 100%;
+    transition: all 0.2s ease;
+  }
+
+  #sidebar-box:hover,
+  #sidebar-header,
+  #sidebar {
+    width: var(--custom-sidebar-full-width) !important;
+  }
+
+  #sidebar {
+    flex-grow: 1;
+  }
+
+  #sidebar-splitter {
+    display: none;
+  }
+
+  #sidebar-box:not([hidden]) ~ #appcontent {
+    margin-left: var(--custom-sidebar-collapsed-width);
+  }
+
+  #sidebar-box:not([hidden]) ~ #appcontent .findbar-container {
+    min-width: calc(100vw - 48px - var(--custom-sidebar-collapsed-width)) !important;
+  }
+
+  #sidebar-box[positionend="true"]:not([hidden]) ~ #appcontent {
+    margin-left: 0;
+    margin-right: var(--custom-sidebar-collapsed-width);
+    border-right: 0;
+    border-left: var(--custom-sidebar-border);
+  }
+
+  /* Full screen */
+  #main-window[inFullscreen][inDOMFullscreen] #appcontent {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
