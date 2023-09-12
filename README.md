@@ -4,7 +4,7 @@
 ### UserChrome.css
 1. In `about:config` set `toolkit.legacyUserProfileCustomizations.stylesheets` to "True" for your custom themes to work.
 2. In `about:support` in the big box you will find a `profile directory` with a `Open Directory` button.
-3. Inside of that create a `Chrome` folder, if it is not already there.
+3. Inside of that create a `chrome` folder, if it is not already there.
 4. Put `userChrome.css` inside of `Chrome`.
 
 
@@ -26,3 +26,4 @@
 
 
 ### Restart FireFox
+once you restart firefox everything should look good.
