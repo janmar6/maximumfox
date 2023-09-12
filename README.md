@@ -32,6 +32,71 @@ once you restart firefox everything should look good.
 - To toggle Tree Style Tab, you can press `F1`.
 - To focus on the nav bar, you can press `F6`.
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+:root {
+  /* This value should be updated here and in the userChrome.css */
+  --tst-sidepanel-hide-delay: 1s;
+}
+
+/* Hide border on tab bar, force its state to 'scroll', adjust margin-left for width of scrollbar. */
+#tabbar {
+  border: 0;
+  scrollbar-width: none;
+  overflow: scroll !important;
+  margin-top:  0 !important;
+}
+
+/* resolve extra space for scrollbar (scrollbar is hidden by this script) */
+.on-scrollbar-area #tabbar {
+  --shift-tabs-for-scrollbar-distance: 0px;
+}
+
+/* Include 'reveal' animation ... stagers by level */
+#tabbar .tab {
+  transition: 0.1s margin-top, 0.2s 0.1s visibility;
+}
+#tabbar tab-item-substance {
+  transition: 0.2s 0.1s margin-left;
+}
+
+
+/* delay transitions on open */
+#tabbar:not(:hover) tab-item-substance {
+  transition-delay: var(--tst-sidepanel-hide-delay);
+  margin-left: 0;
+}
+
+/* animate twisty reveal */
+#tabbar .tab .twisty {
+  transition: 0.2s margin;
+}
+
+/* general tabs */
+.tab {
+  background-color: transparent;
+}
+.tab,
+.tab.pinned {
+  height: 2.8em;
 }
 
 /* Push tab labels slightly to the right so they're completely hidden in collapsed state, but still look fine while expanded. */
@@ -170,3 +235,7 @@ tab-item.active .highlighter::before {
   min-width: none;
   width: auto;
 }
+
+
+
+
